@@ -12,4 +12,10 @@ app.get("/health", (req, res) => {
   });
 });
 
+app.get("/healthRoute", (req, res) => {
+  res.status(200).json({
+    status: "successful",
+  });
+});
+
 export default app;

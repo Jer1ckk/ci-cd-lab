@@ -1,4 +1,3 @@
-
 import { expect } from "chai";
 import request from "supertest";
 import app from "../app.js";
@@ -25,6 +24,20 @@ describe("GET /health", () => {
     const response = await request(app).get("/health");
     expect(response.body).to.deep.equal({
       status: "success",
+    });
+  });
+});
+
+describe("GET /healthRoute", () => {
+  it("returns HTTP 200", async () => {
+    const response = await request(app).get("/healthRoute");
+    expect(response.status).to.equal(200);
+  });
+
+  it("returns the expected status", async () => {
+    const response = await request(app).get("/healthRoute");
+    expect(response.body).to.deep.equal({
+      status: "successful",
     });
   });
 });
